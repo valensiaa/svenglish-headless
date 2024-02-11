@@ -1,22 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect, useState } from "react";
+
+import sanityClient from "./client";
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(sanityClient);
 
 function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "siteSettings"]{
+          title,
+      logotypeDark{
+        asset->{
+          _id,
+          url
+        },
+        alt
+      }
+    }`
+      )
+      .then((data) => setData(data))
+      .catch(console.error);
+  });
+
+  const setUrl = (source) => {
+    return builder.image(source);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="l-header">
+        <img
+          src={data ? setUrl(data[0].logotypeDark).url() : ""}
+          alt={data ? data[0].title : ""}
+        />
       </header>
     </div>
   );
