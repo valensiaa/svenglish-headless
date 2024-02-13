@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App flex flex-col font-sans font-normal">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
