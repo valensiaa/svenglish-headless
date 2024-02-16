@@ -14,7 +14,7 @@ const Header = () => {
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "siteSettings"]{
+        `*[_type == "siteConfig"]{
           title,
       logotypeDark{
         asset->{
