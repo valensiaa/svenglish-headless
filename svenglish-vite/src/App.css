@@ -6,6 +6,10 @@
   min-height: 100vh;
 }
 
+.l-header {
+  box-shadow: 0px 14px 41px -33px rgba(0, 0, 0, 0.34);
+}
+
 .l-header__logo-img {
   width: 150px;
 }

@@ -4,7 +4,7 @@ import {defineField, defineType} from 'sanity'
 
 const heroSectionType = defineType({
   name: 'heroSection',
-  title: 'Hero sections',
+  title: 'Hero section',
   type: 'document',
   fields: [
     defineField({

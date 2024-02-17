@@ -20,7 +20,6 @@ const SocIcons = () => {
       .then((data) => setIcons(data))
       .catch(console.error);
   }, []);
-  console.log(icons);
 
   return (
     <div className="c-soc-icons flex">

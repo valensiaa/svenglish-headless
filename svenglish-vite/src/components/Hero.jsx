@@ -54,7 +54,7 @@ const HeroSection = () => {
           }}
         >
           <div className="container">
-            <div className="c-hero__content relative flex flex-col items-start w-full max-w-3xl">
+            <div className="c-hero__content relative flex flex-col items-start w-full max-w-2xl">
               <h1 className="c-hero__title text-4xl font-bold text-ivory text-5xl lowercase">
                 {hero[0].title}
               </h1>

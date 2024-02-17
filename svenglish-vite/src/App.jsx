@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import Home from "./pages/Home";
-import SocIcons from "./components/SocIcons";
+import SocIcons from "./layouts/SocIcons";
 
 import "./App.css";
 

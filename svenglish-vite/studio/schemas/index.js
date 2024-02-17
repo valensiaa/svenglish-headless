@@ -4,6 +4,7 @@ import siteConfig from './siteConfig'
 import itemMenuType from './itemMenuType'
 import heroSection from './heroSectionType'
 import socIconsType from './socIconsType'
+import aboutSectionType from './aboutSectionType'
 
 export const schemaTypes = [
   siteConfig,
@@ -12,4 +13,5 @@ export const schemaTypes = [
   itemMenuType,
   heroSection,
   socIconsType,
+  aboutSectionType,
 ]
