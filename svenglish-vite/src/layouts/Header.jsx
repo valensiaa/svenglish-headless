@@ -2,7 +2,7 @@ import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar.jsx";
 
@@ -27,23 +27,23 @@ const Header = () => {
       )
       .then((data) => setData(data))
       .catch(console.error);
-  });
+  }, []);
 
   const setUrl = (source) => {
     return builder.image(source);
   };
 
   return (
-    <header className="l-header bg-ivory">
+    <header className="l-header bg-ivory fixed w-full z-10">
       <div className="container mx-auto flex">
         <div className="w-full flex py-4">
-          <NavLink to="/">
+          <Link to="/">
             <img
               className="l-header__logo-img"
               src={data ? setUrl(data[0].logotypeDark).url() : ""}
               alt={data ? data[0].title : ""}
             />
-          </NavLink>
+          </Link>
           {<Navbar />}
         </div>
       </div>

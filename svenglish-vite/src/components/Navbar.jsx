@@ -1,20 +1,63 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import sanityClient from "../client.js";
+import { NavLink, useLocation } from "react-router-dom";
+
+import { getSecondPartUrl } from "../utils/getSecondPartURI.js";
 
 const Navbar = () => {
+  const [menu, setMenu] = useState(null);
+
+  const location = useLocation();
+  const { pathname } = location;
+  let lang = getSecondPartUrl(pathname) === "en" ? "en" : "fr";
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == 'itemMenu']{
+          _id,
+          "itemAnchorURL": itemAnchorURL.${lang},
+          "itemTitle": itemTitle.${lang}
+        }`
+      )
+      .then((data) => setMenu(data))
+      .catch(console.error);
+  }, [lang]);
+
   return (
-    <nav className="c-navbar flex-auto flex justify-end items-center">
+    <div className="c-navbar flex-auto flex justify-end items-center">
       <ul className="c-navbar__list flex">
-        <li className="c-navbar__item px-[theme(spacing.8)] text-navy_blue hover:text-black">
-          <NavLink className="uppercase font-light" to="/">
-            apropos
-          </NavLink>
-        </li>
-        <li className="c-navbar__item px-[theme(spacing.8)] text-navy_blue hover:text-black">
-          <NavLink to="/produits">PRODUITS</NavLink>
-        </li>
+        {menu &&
+          menu.map((item) => (
+            <li
+              key={item._id}
+              className="c-navbar__item text-navy_blue hover:text-black"
+            >
+              <NavLink className="uppercase font-light" to={item.itemAnchorURL}>
+                {item.itemTitle}
+              </NavLink>
+            </li>
+          ))}
+        <ul className="c-navbar__lang flex pl-[theme(spacing.16)]">
+          {lang === "en" ? (
+            <li className="c-navbar__lang-item text-navy_blue hover:text-black">
+              <NavLink className="uppercase font-light" to="/">
+                FR
+              </NavLink>
+            </li>
+          ) : (
+            <li className="c-navbar__lang-item text-navy_blue hover:text-black">
+              <NavLink className="uppercase font-light" to="/en">
+                EN
+              </NavLink>
+            </li>
+          )}
+        </ul>
       </ul>
-    </nav>
+      {/* <FontAwesomeIcon icon={faFacebook} /> */}
+    </div>
   );
 };
 
