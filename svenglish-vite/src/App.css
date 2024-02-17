@@ -52,3 +52,36 @@
 .c-hero__cta:hover {
   background-color: #f2f1ec6c;
 }
+
+.c-soc-icons {
+  position: relative;
+}
+
+.c-soc-icons__wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.c-soc-icons__item {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f1ec;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+  /* box-shadow: ; */
+}
+
+.c-soc-icons__item svg {
+  color: #365b6d;
+  width: 20px;
+  height: 20px;
+}
+
+.c-soc-icons__item svg.fa-envelope {
+  width: 16px;
+  height: auto;
+}

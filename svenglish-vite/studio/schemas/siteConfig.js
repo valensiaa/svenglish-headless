@@ -29,6 +29,11 @@ const siteConfig = defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'socIcons',
+      type: 'reference',
+      to: [{type: 'socIcons'}],
+    }),
   ],
   preview: {
     select: {

@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import Home from "./pages/Home";
+import SocIcons from "./components/SocIcons";
 
 import "./App.css";
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/en" element={<Home />} />
       </Routes>
       <Footer />
+      <SocIcons />
     </div>
   );
 }

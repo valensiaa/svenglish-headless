@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+
 import sanityClient from "../client.js";
 import { NavLink, useLocation } from "react-router-dom";
 

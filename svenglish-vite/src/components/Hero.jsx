@@ -35,7 +35,6 @@ const HeroSection = () => {
       .then((data) => setHero(data))
       .catch(console.error);
   }, [lang]);
-  console.log(hero);
 
   const setUrl = (source) => {
     return builder.image(source);
