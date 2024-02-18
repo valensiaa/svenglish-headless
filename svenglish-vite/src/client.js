@@ -5,6 +5,7 @@ const client = createClient({
   dataset: "production",
   apiVersion: "2024-02-18",
   token: "",
+  useCdn: true,
 });
 
 export default client;
