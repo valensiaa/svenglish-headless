@@ -5,7 +5,6 @@ export default {
     "./src/pages/*.jsx",
     "./src/components/*.jsx",
     "./src/layouts/*.jsx",
-    "./src/App.css",
   ],
   theme: {
     screens: {
