@@ -77,7 +77,8 @@
   border-radius: 5px;
   width: 25px;
   height: 25px;
-  /* box-shadow: ; */
+  transform: scale(1);
+  transition: all 0.3s ease;
 }
 
 .c-soc-icons__item svg {
@@ -86,12 +87,22 @@
   height: 20px;
 }
 
+.c-soc-icons__item:hover {
+  background-color: #365b6d;
+  transform: scale(1.2);
+}
+
+.c-soc-icons__item:hover svg {
+  transition: all 0.3s ease;
+  color: #f2f1ec;
+}
+
 .c-soc-icons__item svg.fa-envelope {
   width: 16px;
   height: auto;
 }
 
 .c-brands__slide {
-  max-height: 120px;
+  max-height: 180px;
   margin: 20px auto;
 }

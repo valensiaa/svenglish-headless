@@ -32,7 +32,7 @@ const Navbar = () => {
           menu.map((item) => (
             <li
               key={item._id}
-              className="c-navbar__item text-navy_blue hover:text-black"
+              className="text-navy_blue hover:text-black c-navbar__item"
             >
               <NavLink className="uppercase font-light" to={item.itemAnchorURL}>
                 {item.itemTitle}

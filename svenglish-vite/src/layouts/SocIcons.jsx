@@ -33,7 +33,7 @@ const SocIcons = () => {
           </Link>
           <Link
             to={icons[0].facebook}
-            className="c-soc-icons__item  shadow-lg shadow-navy_blue-500/40"
+            className="c-soc-icons__item shadow-lg shadow-navy_blue-500/40 "
           >
             <FontAwesomeIcon icon={faFacebookF} />{" "}
           </Link>
