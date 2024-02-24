@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import { useLocation } from "react-router-dom";
 
@@ -19,8 +19,6 @@ register();
 const builder = imageUrlBuilder(sanityClient);
 
 const BrandsSection = () => {
-  const progressContent = useRef(null);
-
   const [brands, setBrands] = useState(null);
 
   const location = useLocation();
@@ -49,7 +47,7 @@ const BrandsSection = () => {
     : "";
 
   return (
-    <section id={brands && brands[0].anchor} className="c-brands bg-ivory">
+    <section id="anchor" className="c-brands bg-ivory">
       {imagesChunks &&
         imagesChunks.map((chunk, index) => (
           <Swiper

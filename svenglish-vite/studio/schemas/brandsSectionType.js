@@ -11,11 +11,6 @@ const aboutSectionType = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'anchor',
-      title: 'Unique name for linking to this section. Must be unique on the page.',
-      type: 'localeString',
-    }),
-    defineField({
       name: 'arrayOfImages',
       title: 'Array of images',
       type: 'array',

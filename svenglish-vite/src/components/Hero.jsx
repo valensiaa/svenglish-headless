@@ -27,8 +27,7 @@ const HeroSection = () => {
                 asset->{    
                 _id,
                 url
-                },
-                alt
+                }
             }
         }`
       )
@@ -55,10 +54,10 @@ const HeroSection = () => {
         >
           <div className="container">
             <div className="c-hero__content relative flex flex-col items-start w-full max-w-2xl">
-              <h1 className="c-hero__title text-4xl font-bold text-ivory text-5xl lowercase">
+              <h1 className="c-hero__title font-bold text-ivory text-5xl lowercase">
                 {hero[0].title}
               </h1>
-              <p className="c-hero__text text-lg font-light text-left text-ivory text-2xl py-[theme(spacing.40)]">
+              <p className="c-hero__text text-lg font-light text-left text-ivory py-[theme(spacing.40)]">
                 {hero[0].content[0].children[0].text}
               </p>
               <Link

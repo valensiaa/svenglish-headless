@@ -1,9 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import Home from "./pages/Home";
 import SocIcons from "./layouts/SocIcons";
+import ProductDetails from "./pages/ProductDetails";
 
 import "./App.css";
 
@@ -14,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/en" element={<Home />} />
+        <Route path="/products/:productSlug" element={<ProductDetails />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
       <SocIcons />

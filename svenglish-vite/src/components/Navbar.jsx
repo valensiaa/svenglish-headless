@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import sanityClient from "../client.js";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import { getSecondPartUrl } from "../utils/getSecondPartURI.js";
 
@@ -34,9 +34,9 @@ const Navbar = () => {
               key={item._id}
               className="text-navy_blue hover:text-black c-navbar__item"
             >
-              <NavLink className="uppercase font-light" to={item.itemAnchorURL}>
+              <Link className="uppercase font-light" to={item.itemAnchorURL}>
                 {item.itemTitle}
-              </NavLink>
+              </Link>
             </li>
           ))}
         <ul className="c-navbar__lang flex pl-[theme(spacing.16)]">

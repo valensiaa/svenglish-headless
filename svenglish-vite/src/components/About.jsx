@@ -5,6 +5,7 @@ import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 
 import { getSecondPartUrl } from "../utils/getSecondPartURI.js";
+import { toLowerCb } from "../utils/toLowerCase.js";
 
 const builder = imageUrlBuilder(sanityClient);
 
@@ -14,10 +15,6 @@ const AboutSection = () => {
   const location = useLocation();
   const { pathname } = location;
   let lang = getSecondPartUrl(pathname) === "en" ? "en" : "fr";
-
-  const toLowerCb = (str) => {
-    return str.toLowerCase();
-  };
 
   useEffect(() => {
     sanityClient
@@ -47,7 +44,7 @@ const AboutSection = () => {
     <>
       {about && (
         <section
-          id={toLowerCb(about[0].anchor)}
+          id="{about[0].anchor}"
           className="c-about bg-ivory flex flex-col items-center w-full pb-40 pt-40"
         >
           <div className="container">
