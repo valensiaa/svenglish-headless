@@ -7,12 +7,6 @@ export default {
     "./src/layouts/*.jsx",
   ],
   theme: {
-    screens: {
-      sm: "480px",
-      md: "768px",
-      lg: "976px",
-      xl: "1280px",
-    },
     colors: {
       ivory: "#F2F1EC",
       navy_blue: "#365B6D",

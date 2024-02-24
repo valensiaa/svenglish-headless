@@ -116,3 +116,9 @@
 .c-reviews .swiper-wrapper {
   margin-bottom: 50px;
 }
+
+.container {
+  max-width: 1200px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
