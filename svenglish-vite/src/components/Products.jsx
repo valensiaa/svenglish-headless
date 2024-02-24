@@ -30,7 +30,8 @@ const ProductsSection = ({ titleSection, anchorSection }) => {
                 alt
             },
             "productContent": productContent.${lang},
-            slug
+            slug,
+            slugEn
         }`
       )
       .then((data) => setProducts(data))
@@ -59,7 +60,7 @@ const ProductsSection = ({ titleSection, anchorSection }) => {
                 key={product._id}
                 to={
                   lang === "en"
-                    ? `products/${product.slug.current}`
+                    ? `products/${product.slugEn.current}`
                     : `produits/${product.slug.current}`
                 }
                 className="c-products__item w-full mb-[theme(spacing.24)] bg-navy_blue p-4 flex flex-col items-start justify-between"
@@ -75,7 +76,7 @@ const ProductsSection = ({ titleSection, anchorSection }) => {
                     paragraphClasses="font-serif text-ivory text-xs"
                     ulClasses="my-[theme(spacing.24)]"
                     liClasses="text-ivory ml-3 text-sm font-light"
-                    headerClasses={"font-bold text-ivory text-lg"}
+                    headerClasses="font-bold text-ivory text-lg"
                     value={product.productContent}
                   />
                 )}

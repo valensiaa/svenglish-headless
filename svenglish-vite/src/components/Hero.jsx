@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import { getSecondPartUrl } from "../utils/getSecondPartURI.js";
 import imageUrlBuilder from "@sanity/image-url";
+import { MyCustomPortableText } from "../components/shared/CustomPortableText.jsx";
 
 const builder = imageUrlBuilder(sanityClient);
 
@@ -57,9 +58,18 @@ const HeroSection = () => {
               <h1 className="c-hero__title font-bold text-ivory text-5xl lowercase">
                 {hero[0].title}
               </h1>
-              <p className="c-hero__text text-lg font-light text-left text-ivory py-[theme(spacing.40)]">
+              {/* <p className="c-hero__text text-lg font-light text-left text-ivory py-[theme(spacing.40)]">
                 {hero[0].content[0].children[0].text}
-              </p>
+              </p> */}
+              <div>
+                <MyCustomPortableText
+                  paragraphClasses="c-hero__text text-lg font-light text-left text-ivory py-[theme(spacing.40)]"
+                  ulClasses="my-[theme(spacing.24)] ml-[theme(spacing.16)]"
+                  liClasses="text-lg text-ivory font-light leading-6 w-full pl-16 max-w-3xl"
+                  headerClasses="font-bold text-ivory text-lg max-w-3xl"
+                  value={hero[0].content}
+                />
+              </div>
               <Link
                 to={hero[0].ctaLink}
                 className="c-hero__cta text-ivory text-2xl font-light py-3 px-6 mt-4 lowercase"

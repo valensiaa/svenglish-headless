@@ -5,7 +5,7 @@ import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 
 import { getSecondPartUrl } from "../utils/getSecondPartURI.js";
-import { toLowerCb } from "../utils/toLowerCase.js";
+import { MyCustomPortableText } from "./shared/CustomPortableText.jsx";
 
 const builder = imageUrlBuilder(sanityClient);
 
@@ -54,9 +54,15 @@ const AboutSection = () => {
                 src={about ? setUrl(about[0].image).url() : ""}
                 alt={about[0].image.alt}
               />
-              <p className="c-about__text text-base text-navy_blue font-light leading-8 w-full pl-24">
-                {about[0].content[0].children[0].text}
-              </p>
+              <div>
+                <MyCustomPortableText
+                  paragraphClasses="c-about__text text-base text-navy_blue font-light leading-8 w-full pl-24"
+                  ulClasses="my-[theme(spacing.24)] ml-[theme(spacing.16)]"
+                  liClasses="text-base text-navy_blue font-light leading-6 w-full pl-16 max-w-3xl"
+                  headerClasses={"font-bold text-navy_blue text-lg max-w-3xl"}
+                  value={about[0].content}
+                />
+              </div>
             </div>
           </div>
         </section>

@@ -1,4 +1,3 @@
-import baseLanguage from './baseLanguage'
 import {defineField, defineType} from 'sanity'
 
 const productType = defineType({
@@ -38,12 +37,22 @@ const productType = defineType({
     }),
     defineField({
       name: 'productContent',
+      title: 'Product Excerpt',
+      type: 'localeContent',
+    }),
+    defineField({
+      name: 'productContentDetails',
       title: 'Product Content',
       type: 'localeContent',
     }),
     defineField({
       name: 'productIcon',
       title: 'Product Icon',
+      type: 'image',
+    }),
+    defineField({
+      name: 'productHeroImage',
+      title: 'Hero image',
       type: 'image',
     }),
   ],
