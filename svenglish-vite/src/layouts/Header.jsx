@@ -5,6 +5,8 @@ import "../App.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { LangReceiver } from "../components/shared/LangReceiver.jsx";
+
 import Navbar from "../components/Navbar.jsx";
 
 const builder = imageUrlBuilder(sanityClient);
@@ -12,11 +14,11 @@ const builder = imageUrlBuilder(sanityClient);
 const Header = () => {
   const [data, setData] = useState(null);
 
+  const lang = LangReceiver();
   useEffect(() => {
     sanityClient
       .fetch(
         `*[_type == "siteConfig"]{
-          title,
       logotypeDark{
         asset->{
           _id,
@@ -38,7 +40,7 @@ const Header = () => {
     <header className="l-header bg-ivory fixed w-full z-10">
       <div className="container mx-auto flex">
         <div className="w-full flex py-4">
-          <Link to="/">
+          <Link to={lang === "en" ? "/en" : "/"}>
             <img
               className="l-header__logo-img"
               src={data ? setUrl(data[0].logotypeDark).url() : ""}

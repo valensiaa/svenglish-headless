@@ -8,7 +8,7 @@ import { MyCustomPortableText } from "./shared/CustomPortableText.jsx";
 
 const builder = imageUrlBuilder(sanityClient);
 
-const Products = ({ titleSection }) => {
+const ProductsSection = ({ titleSection, anchorSection }) => {
   const [products, setProducts] = useState(null);
 
   const location = useLocation();
@@ -41,11 +41,11 @@ const Products = ({ titleSection }) => {
     return builder.image(source);
   };
 
-  if (products) {
-    console.log(products);
-  }
   return (
-    <section className="c-products py-[theme(spacing.56)] bg-ivory">
+    <section
+      className="c-products py-[theme(spacing.56)] bg-ivory"
+      id={anchorSection}
+    >
       <div className="container mx-auto">
         {titleSection && (
           <h2 className="c-products__title text-4xl text-navy_blue lowercase border border-x-0 border-t-0 border-solid border-b-navy_blue pb-[theme(spacing.16)]">
@@ -57,7 +57,11 @@ const Products = ({ titleSection }) => {
             products.map((product) => (
               <Link
                 key={product._id}
-                to={`/products/${product.slug.current}`}
+                to={
+                  lang === "en"
+                    ? `products/${product.slug.current}`
+                    : `produits/${product.slug.current}`
+                }
                 className="c-products__item w-full mb-[theme(spacing.24)] bg-navy_blue p-4 flex flex-col items-start justify-between"
               >
                 <h3 className="c-products__item__title text-lg text-ivory font-bold mb-3">
@@ -90,4 +94,4 @@ const Products = ({ titleSection }) => {
     </section>
   );
 };
-export default Products;
+export default ProductsSection;

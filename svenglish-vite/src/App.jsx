@@ -15,7 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/en" element={<Home />} />
-        <Route path="/products/:productSlug" element={<ProductDetails />} />
+        <Route path="en/products/:productSlug" element={<ProductDetails />} />
+        <Route path="/produits/:productSlug" element={<ProductDetails />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />

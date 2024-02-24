@@ -7,6 +7,7 @@ import socIconsType from './socIconsType'
 import aboutSectionType from './aboutSectionType'
 import brandsSectionType from './brandsSectionType'
 import productType from './productType'
+import reviewSectionType from './reviewSectionType'
 
 export const schemaTypes = [
   siteConfig,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   heroSection,
   aboutSectionType,
   brandsSectionType,
+  reviewSectionType,
 ]
