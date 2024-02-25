@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
-import { useLocation } from "react-router-dom";
 
-import { getSecondPartUrl } from "../utils/getSecondPartURI.js";
 import { arrayIntoChunks } from "../utils/arrayIntoChunks.js";
+import { LangReceiver } from "../components/shared/LangReceiver.jsx";
+
 import imageUrlBuilder from "@sanity/image-url";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,12 +18,10 @@ register();
 
 const builder = imageUrlBuilder(sanityClient);
 
-const BrandsSection = () => {
+const BrandsSection = ({ titleSection, anchorSection, iconSection }) => {
   const [brands, setBrands] = useState(null);
 
-  const location = useLocation();
-  const { pathname } = location;
-  let lang = getSecondPartUrl(pathname) === "en" ? "en" : "fr";
+  const lang = LangReceiver();
 
   useEffect(() => {
     sanityClient
@@ -47,11 +45,18 @@ const BrandsSection = () => {
     : "";
 
   return (
-    <section id="anchor" className="c-brands bg-ivory">
+    <section id={anchorSection} className="c-brands bg-ivory">
+      <div className="container mx-auto">
+        {titleSection && (
+          <h2 className="c-brands__title text-4xl text-navy_blue lowercase border border-x-0 border-t-0 border-solid border-b-navy_blue pb-[theme(spacing.16)]">
+            {titleSection}
+          </h2>
+        )}
+      </div>
       {imagesChunks &&
         imagesChunks.map((chunk, index) => (
           <Swiper
-            className={`swiper-${index}`}
+            className={`swiper-${index} mt-[theme(spacing.56)]`}
             key={index}
             slidesPerView={2}
             loop={true}

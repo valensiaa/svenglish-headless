@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 import sanityClient from "../client.js";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
-import { getSecondPartUrl } from "../utils/getSecondPartURI.js";
+import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(null);
 
-  const location = useLocation();
-  const { pathname } = location;
-  let lang = getSecondPartUrl(pathname) === "en" ? "en" : "fr";
+  const lang = LangReceiver();
 
   useEffect(() => {
     sanityClient

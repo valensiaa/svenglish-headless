@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import { getSecondPartUrl } from "../utils/getSecondPartURI.js";
+import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 import imageUrlBuilder from "@sanity/image-url";
 import { MyCustomPortableText } from "./shared/CustomPortableText.jsx";
 
 const builder = imageUrlBuilder(sanityClient);
 
-const ProductsSection = ({ titleSection, anchorSection }) => {
+const ProductsSection = ({ titleSection, anchorSection, iconSection }) => {
   const [products, setProducts] = useState(null);
 
-  const location = useLocation();
-  const { pathname } = location;
-  let lang = getSecondPartUrl(pathname) === "en" ? "en" : "fr";
+  const lang = LangReceiver();
 
   useEffect(() => {
     sanityClient

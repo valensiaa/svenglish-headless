@@ -106,19 +106,18 @@
   max-height: 180px;
   margin: 20px auto;
 }
-
-.c-reviews .swiper-pagination .swiper-pagination-bullet {
-  background-color: #365b6d;
-  width: 20px;
-  height: 20px;
-}
-
-.c-reviews .swiper-wrapper {
-  margin-bottom: 50px;
-}
-
 .container {
   max-width: 1200px;
   padding-left: 16px;
   padding-right: 16px;
+}
+
+.swiper-wrapper {
+  margin-bottom: 40px;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  background-color: #365b6d;
+  width: 20px;
+  height: 20px;
 }

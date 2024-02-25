@@ -12,8 +12,9 @@ register();
 import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 import { MyCustomPortableText } from "./shared/CustomPortableText.jsx";
 
-const ReviewsSection = ({ titleSection, anchorSection }) => {
+const ReviewsSection = ({ titleSection, anchorSection, iconSection }) => {
   const [reviews, setReviews] = useState(null);
+
   const lang = LangReceiver();
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const ReviewsSection = ({ titleSection, anchorSection }) => {
 
   return (
     <section
-      className="c-reviews bg-ivory py-[theme(spacing.56)]"
+      className="c-reviews bg-ivory pt-[theme(spacing.56)]"
       id={anchorSection}
     >
       <div className="container mx-auto">

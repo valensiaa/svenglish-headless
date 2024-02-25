@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 
-import { getSecondPartUrl } from "../utils/getSecondPartURI.js";
+import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 import { MyCustomPortableText } from "./shared/CustomPortableText.jsx";
 
 const builder = imageUrlBuilder(sanityClient);
 
-const AboutSection = () => {
+const AboutSection = ({ titleSection, anchorSection, iconSection }) => {
   const [about, setAbout] = useState(null);
 
-  const location = useLocation();
-  const { pathname } = location;
-  let lang = getSecondPartUrl(pathname) === "en" ? "en" : "fr";
+  const lang = LangReceiver();
 
   useEffect(() => {
     sanityClient
@@ -44,13 +41,24 @@ const AboutSection = () => {
     <>
       {about && (
         <section
-          id="{about[0].anchor}"
-          className="c-about bg-ivory flex flex-col items-center w-full pb-40 pt-40"
+          id={anchorSection}
+          className="c-about bg-ivory flex flex-col items-center w-full pb-56 pt-56"
         >
-          <div className="container">
-            <div className="c-about__content relative flex items-center w-full">
+          <div className="container mx-auto">
+            {titleSection && (
+              <div className="c-about__title">
+                <h2 className="text-4xl text-navy_blue lowercase border border-x-0 border-t-0 border-solid border-b-navy_blue pb-[theme(spacing.16)]">
+                  {titleSection}
+                </h2>
+                {/* <img
+                  src={iconSection ? setUrl(iconSection).url() : ""}
+                  alt={titleSection}
+                /> */}
+              </div>
+            )}
+            <div className="c-about__content relative flex items-center flex-col md:flex-row w-full  pt-[theme(spacing.56)]">
               <img
-                className="c-about__image max-h-80"
+                className="c-about__image max-h-96 md:max-h-80 mb-24 w-full md:w-1/2 md:mb-0 object-cover"
                 src={about ? setUrl(about[0].image).url() : ""}
                 alt={about[0].image.alt}
               />
