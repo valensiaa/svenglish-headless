@@ -2,13 +2,19 @@ import React, { useEffect, useState } from "react";
 
 import sanityClient from "../client.js";
 import { Link, NavLink } from "react-router-dom";
+import { useHashId } from "react-hash-control";
 
 import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(null);
-
   const lang = LangReceiver();
+  const activeId = useHashId();
+
+  // Function to handle menu item click
+  const handleMenuItemClick = (id) => {
+    window.location.hash = String(id); // Update URL hash
+  };
 
   useEffect(() => {
     sanityClient
@@ -30,9 +36,13 @@ const Navbar = () => {
           menu.map((item) => (
             <li
               key={item._id}
-              className="text-navy_blue hover:text-black c-navbar__item"
+              className="text-navy_blue hover:text-black c-navbar__item px-8 [&>*:last-child]:pr-8"
             >
-              <Link className="uppercase font-light" to={item.itemAnchorURL}>
+              <Link
+                className="uppercase font-light"
+                to={item.itemAnchorURL}
+                onClick={() => handleMenuItemClick(item.itemAnchorURL)}
+              >
                 {item.itemTitle}
               </Link>
             </li>

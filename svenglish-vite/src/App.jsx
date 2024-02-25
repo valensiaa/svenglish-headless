@@ -1,3 +1,4 @@
+import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "./layouts/Header";
@@ -5,8 +6,6 @@ import Footer from "./layouts/Footer";
 import Home from "./pages/Home";
 import SocIcons from "./layouts/SocIcons";
 import ProductDetails from "./pages/ProductDetails";
-
-import "./App.css";
 
 function App() {
   return (

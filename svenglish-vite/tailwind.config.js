@@ -6,6 +6,7 @@ export default {
     "./src/components/*.jsx",
     "./src/layouts/*.jsx",
   ],
+
   theme: {
     colors: {
       ivory: "#F2F1EC",
@@ -16,6 +17,7 @@ export default {
     fontFamily: {
       sans: ["Barlow", "sans-serif"],
     },
+
     extend: {
       spacing: {
         8: "8px",

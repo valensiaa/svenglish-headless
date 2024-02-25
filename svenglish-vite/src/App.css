@@ -2,6 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html {
+  scroll-behavior: smooth;
+}
+
 .App {
   min-height: 100vh;
 }
@@ -12,15 +16,6 @@
 
 .l-header__logo-img {
   width: 150px;
-}
-
-.c-navbar__list li.c-navbar__item {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.c-navbar__list li.c-navbar__item:last-child {
-  padding-right: 16px;
 }
 
 .c-navbar__lang {
