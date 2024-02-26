@@ -109,10 +109,21 @@ html {
 
 .swiper-wrapper {
   margin-bottom: 40px;
+  align-items: center;
 }
 
 .swiper-pagination .swiper-pagination-bullet {
   background-color: #365b6d;
   width: 20px;
   height: 20px;
+}
+
+.c-title-section__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-title-section__icon {
+  width: 80px;
 }

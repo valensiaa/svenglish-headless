@@ -1,7 +1,7 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const YoutubeEmbed = ({ embedId, videoTitle }) => (
-  <div className="c-videos__item bg-navy_blue">
+  <div className="c-videos__item bg-ivory">
     <iframe
       className="mx-auto"
       width="315"
@@ -16,3 +16,8 @@ const YoutubeEmbed = ({ embedId, videoTitle }) => (
 );
 
 export default YoutubeEmbed;
+
+YoutubeEmbed.propTypes = {
+  embedId: PropTypes.string,
+  videoTitle: PropTypes.string,
+};

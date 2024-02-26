@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import sanityClient from "../client.js";
 
 import { arrayIntoChunks } from "../utils/arrayIntoChunks.js";
@@ -48,9 +49,16 @@ const BrandsSection = ({ titleSection, anchorSection, iconSection }) => {
     <section id={anchorSection} className="c-brands bg-ivory">
       <div className="container mx-auto">
         {titleSection && (
-          <h2 className="c-brands__title text-4xl text-navy_blue lowercase border border-x-0 border-t-0 border-solid border-b-navy_blue pb-[theme(spacing.16)]">
-            {titleSection}
-          </h2>
+          <div className="c-title-section__wrapper">
+            <h2 className="c-brands__title text-4xl text-navy_blue lowercase border border-x-0 border-t-0 border-solid border-b-navy_blue pb-[theme(spacing.16)] flex-auto">
+              {titleSection}
+            </h2>
+            <img
+              className="c-title-section__icon"
+              src={iconSection ? setUrl(iconSection).url() : ""}
+              alt={titleSection}
+            />
+          </div>
         )}
       </div>
       {imagesChunks &&
@@ -90,3 +98,9 @@ const BrandsSection = ({ titleSection, anchorSection, iconSection }) => {
 };
 
 export default BrandsSection;
+
+BrandsSection.propTypes = {
+  titleSection: PropTypes.string,
+  anchorSection: PropTypes.string,
+  iconSection: PropTypes.object,
+};

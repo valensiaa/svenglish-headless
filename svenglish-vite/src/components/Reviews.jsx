@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import sanityClient from "../client.js";
+import imageUrlBuilder from "@sanity/image-url";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -11,6 +13,7 @@ register();
 
 import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 import { MyCustomPortableText } from "./shared/CustomPortableText.jsx";
+const builder = imageUrlBuilder(sanityClient);
 
 const ReviewsSection = ({ titleSection, anchorSection, iconSection }) => {
   const [reviews, setReviews] = useState(null);
@@ -29,6 +32,10 @@ const ReviewsSection = ({ titleSection, anchorSection, iconSection }) => {
       .catch(console.error);
   }, [lang]);
 
+  const setUrl = (source) => {
+    return builder.image(source);
+  };
+
   return (
     <section
       className="c-reviews bg-ivory pt-[theme(spacing.56)]"
@@ -36,10 +43,18 @@ const ReviewsSection = ({ titleSection, anchorSection, iconSection }) => {
     >
       <div className="container mx-auto">
         {titleSection && (
-          <h2 className="c-reviews__title text-4xl text-navy_blue lowercase border border-x-0 border-t-0 border-solid border-b-navy_blue pb-[theme(spacing.16)]">
-            {titleSection}
-          </h2>
+          <div className="c-title-section__wrapper">
+            <h2 className="c-reviews__title text-4xl text-navy_blue lowercase border border-x-0 border-t-0 border-solid border-b-navy_blue pb-[theme(spacing.16)] flex-auto">
+              {titleSection}
+            </h2>
+            <img
+              className="c-title-section__icon"
+              src={iconSection ? setUrl(iconSection).url() : ""}
+              alt={titleSection}
+            />
+          </div>
         )}
+
         {reviews && (
           <Swiper
             className="pt-[theme(spacing.56)]"
@@ -80,3 +95,9 @@ const ReviewsSection = ({ titleSection, anchorSection, iconSection }) => {
   );
 };
 export default ReviewsSection;
+
+ReviewsSection.propTypes = {
+  titleSection: PropTypes.string,
+  anchorSection: PropTypes.string,
+  iconSection: PropTypes.object,
+};

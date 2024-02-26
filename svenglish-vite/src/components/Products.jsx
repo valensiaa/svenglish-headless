@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import sanityClient from "../client.js";
 import { Link } from "react-router-dom";
 
@@ -47,10 +48,18 @@ const ProductsSection = ({ titleSection, anchorSection, iconSection }) => {
     >
       <div className="container mx-auto">
         {titleSection && (
-          <h2 className="c-products__title text-4xl text-navy_blue lowercase border border-x-0 border-t-0 border-solid border-b-navy_blue pb-[theme(spacing.16)]">
-            {titleSection}
-          </h2>
+          <div className="c-title-section__wrapper">
+            <h2 className="c-products__title text-4xl text-navy_blue lowercase border border-x-0 border-t-0 border-solid border-b-navy_blue pb-[theme(spacing.16)] flex-auto">
+              {titleSection}
+            </h2>
+            <img
+              className="c-title-section__icon"
+              src={iconSection ? setUrl(iconSection).url() : ""}
+              alt={titleSection}
+            />
+          </div>
         )}
+
         <div className="c-products__wrapper grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 my-[theme(spacing.40)]  align-stretch">
           {products &&
             products.map((product) => (
@@ -98,3 +107,9 @@ const ProductsSection = ({ titleSection, anchorSection, iconSection }) => {
   );
 };
 export default ProductsSection;
+
+ProductsSection.propTypes = {
+  titleSection: PropTypes.string,
+  anchorSection: PropTypes.string,
+  iconSection: PropTypes.object,
+};

@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import sanityClient from "../client.js";
 import { Link, NavLink } from "react-router-dom";
-import { useHashId } from "react-hash-control";
 
 import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(null);
   const lang = LangReceiver();
-  const activeId = useHashId();
 
   // Function to handle menu item click
   const handleMenuItemClick = (id) => {
@@ -63,7 +61,6 @@ const Navbar = () => {
           )}
         </ul>
       </ul>
-      {/* <FontAwesomeIcon icon={faFacebook} /> */}
     </div>
   );
 };
