@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 
 import { arrayIntoChunks } from "../utils/arrayIntoChunks.js";
@@ -56,7 +56,7 @@ const BrandsSection = ({ titleSection, anchorSection, iconSection }) => {
       {imagesChunks &&
         imagesChunks.map((chunk, index) => (
           <Swiper
-            className={`swiper-${index} mt-[theme(spacing.56)]`}
+            className={`swiper-${index} pt-[theme(spacing.56)]`}
             key={index}
             slidesPerView={2}
             loop={true}

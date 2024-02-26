@@ -1,5 +1,5 @@
 import sanityClient from "../client.js";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import AboutSection from "../components/About";
 import HeroSection from "../components/Hero";

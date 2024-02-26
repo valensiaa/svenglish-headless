@@ -40,7 +40,7 @@ const RessourcesSection = ({ titleSection, anchorSection, iconSection }) => {
         )}
         {ressources && (
           <Swiper
-            className="mt-[theme(spacing.56)] bg-ivory"
+            className="pt-[theme(spacing.56)] bg-ivory"
             slidesPerView={1}
             spaceBetween={30}
             modules={[Pagination]}

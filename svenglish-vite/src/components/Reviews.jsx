@@ -42,7 +42,7 @@ const ReviewsSection = ({ titleSection, anchorSection, iconSection }) => {
         )}
         {reviews && (
           <Swiper
-            className="mt-[theme(spacing.56)]"
+            className="pt-[theme(spacing.56)]"
             slidesPerView={2}
             grid={{
               fill: "row",
