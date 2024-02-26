@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import { Link } from "react-router-dom";
 
@@ -58,8 +58,8 @@ const ProductsSection = ({ titleSection, anchorSection, iconSection }) => {
                 key={product._id}
                 to={
                   lang === "en"
-                    ? `products/${product.slugEn.current}`
-                    : `produits/${product.slug.current}`
+                    ? `products/${product.slugEn && product.slugEn.current}`
+                    : `produits/${product.slug && product.slug.current}`
                 }
                 className="c-products__item w-full mb-[theme(spacing.24)] bg-navy_blue p-4 flex flex-col items-start justify-between"
               >
@@ -82,8 +82,12 @@ const ProductsSection = ({ titleSection, anchorSection, iconSection }) => {
                 <div className="c-products__item__icon">
                   <img
                     className="w-28"
-                    src={product ? setUrl(product.productIcon).url() : ""}
-                    alt={product ? product.productTitle : ""}
+                    src={
+                      product.productIcon
+                        ? setUrl(product.productIcon).url()
+                        : ""
+                    }
+                    alt={product && product.productTitle}
                   />
                 </div>
               </Link>
