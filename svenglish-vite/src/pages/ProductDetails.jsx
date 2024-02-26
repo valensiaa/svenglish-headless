@@ -35,8 +35,6 @@ const ProductDetails = () => {
       .catch(console.error);
   }, [productSlug, lang, slugVar]);
 
-  if (productInfo) console.log(productInfo);
-
   const setUrl = (source) => {
     return builder.image(source);
   };
