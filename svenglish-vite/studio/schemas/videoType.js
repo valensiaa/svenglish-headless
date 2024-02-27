@@ -16,6 +16,11 @@ const videoType = defineType({
       title: 'Video link',
       description: 'Please insert the video link (shorts recommended) from Youtube',
     }),
+    defineField({
+      name: 'videoImage',
+      title: 'Video poster',
+      type: 'image',
+    }),
   ],
   preview: {
     select: {

@@ -9,12 +9,14 @@ import brandsSectionType from './brandsSectionType'
 import productType from './productType'
 import reviewSectionType from './reviewSectionType'
 import videoType from './videoType'
+import localeUrl from './localeUrlType'
 
 export const schemaTypes = [
   siteConfig,
   socIconsType,
   localeString,
   localeContent,
+  localeUrl,
   itemMenuType,
   productType,
   heroSection,

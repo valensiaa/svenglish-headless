@@ -24,6 +24,12 @@ const RessourcesSection = ({ titleSection, anchorSection, iconSection }) => {
             _id,
             videoTitle,
             videoLink,
+            videoImage{
+              asset->{
+                _id,
+                url
+              }
+            }
         }`
       )
       .then((data) => setRessources(data))
@@ -62,8 +68,11 @@ const RessourcesSection = ({ titleSection, anchorSection, iconSection }) => {
               clickable: true,
             }}
             breakpoints={{
-              768: {
+              979: {
                 slidesPerView: 3,
+              },
+              767: {
+                slidesPerView: 2,
               },
             }}
           >
@@ -72,6 +81,8 @@ const RessourcesSection = ({ titleSection, anchorSection, iconSection }) => {
                 <YoutubeEmbed
                   embedId={getYoutubeIdFromUrl(item.videoLink)}
                   videoTitle={item.videoTitle}
+                  videoPoster={item.videoImage && item.videoImage}
+                  playIcon={iconSection && iconSection}
                 />
               </SwiperSlide>
             ))}

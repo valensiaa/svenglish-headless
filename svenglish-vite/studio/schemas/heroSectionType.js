@@ -24,8 +24,8 @@ const heroSectionType = defineType({
     }),
     defineField({
       name: 'ctaLink',
-      title: 'Call to action link',
-      type: 'url',
+      title: 'Call to action link (URL)',
+      type: 'localeUrl',
     }),
     defineField({
       name: 'image',

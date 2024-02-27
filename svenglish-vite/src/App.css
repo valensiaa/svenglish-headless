@@ -127,3 +127,30 @@ html {
 .c-title-section__icon {
   width: 80px;
 }
+
+.c-videos__item-poster {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  height: 560px;
+  width: 315px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.c-videos__play-icon {
+  width: 140px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.c-videos__item.hidden .c-videos__item-poster,
+.c-videos__item.hidden .c-videos__play-icon {
+  opacity: 0;
+  transform: scale(0);
+}
