@@ -190,8 +190,8 @@ html {
 
 .l-footer__wrapper {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .l-footer__socicons {
