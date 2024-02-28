@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import { Link } from "react-router-dom";
 
@@ -44,9 +44,9 @@ const HeroSection = () => {
         <section
           className="c-hero bg-ivory flex flex-col items-center w-full pb-[theme(spacing.56)] pt-[theme(spacing.56)]"
           style={{
-            backgroundImage: `url(${
-              hero[0] ? setUrl(hero[0].image).url() : ""
-            })`,
+            background: hero[0].image
+              ? `url(${setUrl(hero[0].image).url()})`
+              : "#365b6d",
             backgroundSize: "cover",
             backgroundPosition: "center top",
           }}
@@ -56,9 +56,6 @@ const HeroSection = () => {
               <h1 className="c-hero__title font-bold text-ivory text-5xl lowercase">
                 {hero[0].title}
               </h1>
-              {/* <p className="c-hero__text text-lg font-light text-left text-ivory py-[theme(spacing.40)]">
-                {hero[0].content[0].children[0].text}
-              </p> */}
               <div>
                 <MyCustomPortableText
                   paragraphClasses="c-hero__text text-lg font-light text-left text-ivory py-[theme(spacing.40)]"

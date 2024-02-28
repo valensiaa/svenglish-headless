@@ -64,7 +64,7 @@ const BrandsSection = ({ titleSection, anchorSection, iconSection }) => {
       {imagesChunks &&
         imagesChunks.map((chunk, index) => (
           <Swiper
-            className={`swiper-${index} pt-[theme(spacing.56)]`}
+            className={`swiper-${index} pt-[theme(spacing.56)] c-brands__slider`}
             key={index}
             slidesPerView={2}
             loop={true}

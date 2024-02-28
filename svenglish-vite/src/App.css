@@ -58,7 +58,7 @@ html {
 
 .c-soc-icons__wrapper {
   position: fixed;
-  bottom: 20px;
+  bottom: 55px;
   right: 20px;
   z-index: 10;
 }
@@ -153,4 +153,104 @@ html {
 .c-videos__item.hidden .c-videos__play-icon {
   opacity: 0;
   transform: scale(0);
+}
+
+.c-brands__slider {
+  position: relative;
+}
+
+.c-brands__slider::before,
+.c-brands__slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 75px;
+  height: 100%;
+  z-index: 2;
+}
+
+.c-brands__slider::before {
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(242, 241, 236, 1) 50%,
+    rgba(242, 241, 236, 0) 100%
+  );
+}
+
+.c-brands__slider::after {
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(242, 241, 236, 0) 0%,
+    rgba(242, 241, 236, 1) 50%
+  );
+}
+
+.l-footer__wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.l-footer__socicons {
+  flex: 0 0 300px;
+}
+
+.l-footer__logo-img {
+  margin-right: 50px;
+}
+
+.l-footer__socicons .c-soc-icons__wrapper {
+  position: relative;
+  bottom: auto;
+  right: auto;
+  display: flex;
+  flex: 0 0 300px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.l-footer__socicons .c-soc-icons__wrapper .c-soc-icons__item {
+  width: 40px;
+  height: 40px;
+  background-color: #365b6d;
+}
+
+.l-footer__socicons .c-soc-icons__wrapper .c-soc-icons__item svg {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+}
+
+.c-topup {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  background-color: #f2f1ec;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+.c-topup:hover {
+  background-color: #365b6d;
+  transform: scale(1.2);
+}
+
+.c-topup svg {
+  width: 20px;
+  height: 20px;
+  color: #365b6d;
+}
+
+.c-topup:hover svg {
+  color: #f2f1ec;
 }

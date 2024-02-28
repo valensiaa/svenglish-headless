@@ -30,7 +30,7 @@ const SocIcons = () => {
               to={icons[0].whatsapp}
               className="c-soc-icons__item shadow-lg shadow-navy_blue-500/40"
             >
-              <FontAwesomeIcon icon={faWhatsapp} />{" "}
+              <FontAwesomeIcon icon={faWhatsapp} />
             </Link>
           )}
 
@@ -39,16 +39,16 @@ const SocIcons = () => {
               to={icons[0].facebook}
               className="c-soc-icons__item shadow-lg shadow-navy_blue-500/40 "
             >
-              <FontAwesomeIcon icon={faFacebookF} />{" "}
+              <FontAwesomeIcon icon={faFacebookF} />
             </Link>
           )}
 
           {icons[0].gmail && (
             <Link
-              to={icons[0].gmail}
+              to={`mailto:${icons[0].gmail}`}
               className="c-soc-icons__item  shadow-lg shadow-navy_blue-500/40"
             >
-              <FontAwesomeIcon icon={faEnvelope} />{" "}
+              <FontAwesomeIcon icon={faEnvelope} />
             </Link>
           )}
 
@@ -66,7 +66,7 @@ const SocIcons = () => {
               to={icons[0].youtube}
               className="c-soc-icons__item  shadow-lg shadow-navy_blue-500/40"
             >
-              <FontAwesomeIcon icon={faYoutube} />{" "}
+              <FontAwesomeIcon icon={faYoutube} />
             </Link>
           )}
         </div>
