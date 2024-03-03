@@ -36,7 +36,7 @@ const Header = () => {
   };
 
   return (
-    <header className="l-header bg-ivory fixed w-full z-10">
+    <header className="l-header bg-ivory md:fixed w-full z-10 relative">
       <div className="container mx-auto flex">
         <div className="w-full flex py-4">
           <Link to={lang === "en" ? "/en" : "/"}>

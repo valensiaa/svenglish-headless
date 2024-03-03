@@ -7,6 +7,7 @@ import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lang = LangReceiver();
 
   // Function to handle menu item click
@@ -14,6 +15,10 @@ const Navbar = () => {
     window.location.hash = String(id); // Update URL hash
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  console.log(isMenuOpen);
   useEffect(() => {
     sanityClient
       .fetch(
@@ -29,12 +34,27 @@ const Navbar = () => {
 
   return (
     <div className="c-navbar flex-auto flex justify-end items-center">
-      <ul className="c-navbar__list flex">
+      <div
+        className={`c-navbar__burger absolute flex md:hidden cursor-pointer ${
+          isMenuOpen ? "close" : ""
+        }`}
+        onClick={() => toggleMenu()}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul
+        className={`c-navbar__list flex flex-col md:flex-row absolute md:relative bg-navy_blue  md:bg-ivory py-40 md:py-0 ${
+          isMenuOpen ? "show" : ""
+        }`}
+      >
         {menu &&
           menu.map((item) => (
             <li
               key={item._id}
-              className="text-navy_blue hover:text-black c-navbar__item px-8 [&>*:last-child]:pr-8"
+              className="md:text-navy_blue text-ivory hover:text-black c-navbar__item px-16 md:px-8 md:[&>*:last-child]:pr-8"
             >
               <Link
                 className="uppercase font-light"
@@ -45,15 +65,18 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-        <ul className="c-navbar__lang flex pl-[theme(spacing.16)]">
+        <ul className="c-navbar__lang flex px-16 md:pl-[theme(spacing.16)]">
           {lang === "en" ? (
-            <li className="c-navbar__lang-item text-navy_blue hover:text-black">
+            <li className="c-navbar__lang-itemmd:text-navy_blue text-ivory hover:text-black px-0 md:px-8">
               <NavLink className="uppercase font-light" to="/">
                 FR
               </NavLink>
             </li>
           ) : (
-            <li className="c-navbar__lang-item text-navy_blue hover:text-black">
+            <li
+              className="c-navbar__lang-item md:text-navy_blue text-ivory hover:text-black pl
+            x-0 md:px-8"
+            >
               <NavLink className="uppercase font-light" to="/en">
                 EN
               </NavLink>
