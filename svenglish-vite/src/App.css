@@ -8,6 +8,7 @@ html {
 
 .App {
   min-height: 100vh;
+  background-color: #f2f1ec;
 }
 
 .l-header {

@@ -17,6 +17,12 @@ const socIconsType = {
       type: 'string',
     },
     {
+      title: 'Sven tshirt shop',
+      name: 'tshirtShop',
+      type: 'string',
+      fieldset: 'social',
+    },
+    {
       title: 'WhatsApp',
       name: 'whatsapp',
       type: 'string',

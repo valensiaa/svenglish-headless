@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
@@ -61,7 +62,7 @@ const AboutSection = ({ titleSection, anchorSection, iconSection }) => {
               <img
                 className="c-about__image max-h-96 md:max-h-80 mb-24 w-full md:w-1/2 md:mb-0 object-cover"
                 src={about ? setUrl(about[0].image).url() : ""}
-                alt={about[0].image.alt}
+                alt={titleSection}
               />
               <div>
                 <MyCustomPortableText
@@ -81,3 +82,9 @@ const AboutSection = ({ titleSection, anchorSection, iconSection }) => {
 };
 
 export default AboutSection;
+
+AboutSection.propTypes = {
+  titleSection: PropTypes.string,
+  anchorSection: PropTypes.string,
+  iconSection: PropTypes.object,
+};

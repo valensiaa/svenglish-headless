@@ -27,12 +27,15 @@ const YoutubeEmbed = ({ embedId, videoTitle, videoPoster, playIcon }) => {
       {videoPoster && (
         <>
           <img
-            src={setUrl(videoPoster).url()}
+            src={videoPoster ? setUrl(videoPoster).url() : ""}
             alt={videoTitle}
             onClick={handleClick}
             className="c-videos__item-poster cursor-pointer object-cover"
           />
-          <img src={setUrl(playIcon).url()} className="c-videos__play-icon" />
+          <img
+            src={playIcon ? setUrl(playIcon).url() : ""}
+            className="c-videos__play-icon"
+          />
         </>
       )}
       <iframe

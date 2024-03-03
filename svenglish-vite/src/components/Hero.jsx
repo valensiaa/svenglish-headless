@@ -42,7 +42,7 @@ const HeroSection = () => {
     <>
       {hero && (
         <section
-          className="c-hero bg-ivory flex flex-col items-center w-full pb-[theme(spacing.56)] pt-[theme(spacing.56)]"
+          className="c-hero bg-ivory flex flex-col items-center w-full pb-[theme(spacing.72)] pt-[theme(spacing.72)]"
           style={{
             background: hero[0].image
               ? `url(${setUrl(hero[0].image).url()})`

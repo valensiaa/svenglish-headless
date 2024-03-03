@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 
-import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 import { MyCustomPortableText } from "../components/shared/CustomPortableText.jsx";
 
 import imageUrlBuilder from "@sanity/image-url";
@@ -11,9 +10,15 @@ const builder = imageUrlBuilder(sanityClient);
 
 const ProductDetails = () => {
   const [productInfo, setProductInfo] = useState(null);
-  const { productSlug } = useParams();
+  let { lang, productSlug } = useParams();
+  // console.log(lang, productSlug);
 
-  const lang = LangReceiver();
+  const location = useLocation();
+  const { pathname } = location;
+
+  lang = pathname.indexOf("/en/") > -1 ? "en" : "fr";
+
+  // const lang = LangReceiver();
   const slugVar = lang === "en" ? "slugEn" : "slug";
 
   useEffect(() => {
@@ -44,13 +49,11 @@ const ProductDetails = () => {
       {productInfo && (
         <>
           <div
-            className="c-hero bg-ivory flex flex-col items-center w-full pb-[theme(spacing.56)] pt-[theme(spacing.56)]"
+            className="c-hero bg-ivory flex flex-col items-center w-full pb-[theme(spacing.72)] pt-[theme(spacing.72)]"
             style={{
-              backgroundImage: `url(${
-                productInfo[0]
-                  ? setUrl(productInfo[0].productHeroImage).url()
-                  : ""
-              })`,
+              background: productInfo[0].productHeroImage
+                ? `url(${setUrl(productInfo[0].productHeroImage).url()})`
+                : "#365b6d",
               backgroundSize: "cover",
               backgroundPosition: "center top",
             }}

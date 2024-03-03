@@ -10,6 +10,7 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faShirt } from "@fortawesome/free-solid-svg-icons";
 
 const SocIcons = () => {
   const [icons, setIcons] = useState(null);
@@ -25,6 +26,15 @@ const SocIcons = () => {
     <div className="c-soc-icons flex">
       {icons && (
         <div className="c-soc-icons__wrapper">
+          {icons[0].tshirtShop && (
+            <Link
+              to={icons[0].tshirtShop}
+              className="c-soc-icons__item shadow-lg shadow-navy_blue-500/40"
+            >
+              <FontAwesomeIcon icon={faShirt} />
+            </Link>
+          )}
+
           {icons[0].whatsapp && (
             <Link
               to={icons[0].whatsapp}

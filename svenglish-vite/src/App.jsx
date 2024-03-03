@@ -40,7 +40,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/en" element={<Home />} />
-        <Route path="en/products/:productSlug" element={<ProductDetails />} />
+        <Route
+          path="/:lang/products/:productSlug"
+          element={<ProductDetails />}
+        />
         <Route path="/produits/:productSlug" element={<ProductDetails />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
