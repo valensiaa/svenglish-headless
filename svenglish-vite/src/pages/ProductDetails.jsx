@@ -11,14 +11,12 @@ const builder = imageUrlBuilder(sanityClient);
 const ProductDetails = () => {
   const [productInfo, setProductInfo] = useState(null);
   let { lang, productSlug } = useParams();
-  // console.log(lang, productSlug);
 
   const location = useLocation();
   const { pathname } = location;
 
   lang = pathname.indexOf("/en/") > -1 ? "en" : "fr";
 
-  // const lang = LangReceiver();
   const slugVar = lang === "en" ? "slugEn" : "slug";
 
   useEffect(() => {
@@ -59,7 +57,7 @@ const ProductDetails = () => {
             }}
           >
             <div className="container">
-              <h1 className="c-product-info__title relative font-bold text-ivory text-5xl lowercase">
+              <h1 className="c-product-info__title relative font-bold text-ivory text-5xl">
                 {productInfo[0].productTitle}
               </h1>
             </div>
