@@ -1,4 +1,5 @@
 import { PortableText } from "@portabletext/react";
+import PropTypes from "prop-types";
 
 export function MyCustomPortableText({
   paragraphClasses,
@@ -6,6 +7,7 @@ export function MyCustomPortableText({
   ulClasses,
   liClasses,
   linkClasses,
+  strongClasses,
   value,
 }) {
   const components = {
@@ -33,6 +35,10 @@ export function MyCustomPortableText({
         <em className="text-gray-600 font-semibold">{children}</em>
       ),
 
+      strong: ({ children }) => (
+        <strong className={strongClasses}>{children}</strong>
+      ),
+
       // Ex. 2: rendering a custom `link` annotation
       link: ({ value, children }) => {
         const target = (value?.href || "").startsWith("http")
@@ -53,3 +59,13 @@ export function MyCustomPortableText({
 
   return <PortableText components={components} value={value} />;
 }
+
+MyCustomPortableText.propTypes = {
+  paragraphClasses: PropTypes.string,
+  headerClasses: PropTypes.string,
+  ulClasses: PropTypes.string,
+  liClasses: PropTypes.string,
+  linkClasses: PropTypes.string,
+  value: PropTypes.array,
+  strongClasses: PropTypes.string,
+};

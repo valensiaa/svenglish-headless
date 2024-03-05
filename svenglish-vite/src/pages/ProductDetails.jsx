@@ -69,6 +69,7 @@ const ProductDetails = () => {
                 ulClasses="my-[theme(spacing.24)] ml-[theme(spacing.16)]"
                 liClasses="text-base text-navy_blue font-light leading-6 w-full pl-16 max-w-3xl"
                 headerClasses="font-bold text-navy_blue text-lg max-w-3xl"
+                strongClasses="font-bold text-navy_blue"
                 value={productInfo[0].productContentDetails}
               />
             </div>
