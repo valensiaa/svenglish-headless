@@ -58,7 +58,11 @@ const Navbar = () => {
             >
               <Link
                 className="uppercase font-light"
-                to={item.itemAnchorURL}
+                to={
+                  lang === "fr"
+                    ? `/${item.itemAnchorURL}`
+                    : `/${lang}/${item.itemAnchorURL}`
+                }
                 onClick={() => handleMenuItemClick(item.itemAnchorURL)}
               >
                 {item.itemTitle}
@@ -67,7 +71,7 @@ const Navbar = () => {
           ))}
         <ul className="c-navbar__lang flex px-16 md:pl-[theme(spacing.16)]">
           {lang === "en" ? (
-            <li className="c-navbar__lang-itemmd:text-navy_blue text-ivory hover:text-black px-0 md:px-8">
+            <li className="c-navbar__lang-item md:text-navy_blue text-ivory hover:text-black px-0 md:px-8">
               <NavLink className="uppercase font-light" to="/">
                 FR
               </NavLink>
