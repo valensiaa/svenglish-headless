@@ -67,7 +67,7 @@ const HeroSection = () => {
               </div>
               <Link
                 to={hero[0].ctaLink}
-                className="c-hero__cta text-ivory text-2xl font-light py-3 px-6 mt-4 lowercase"
+                className="c-hero__cta text-ivory text-2xl font-light py-3 px-6 mt-4"
               >
                 {hero[0].cta}
               </Link>
