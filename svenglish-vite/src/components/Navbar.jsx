@@ -18,7 +18,7 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  console.log(isMenuOpen);
+
   useEffect(() => {
     sanityClient
       .fetch(
@@ -69,9 +69,9 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-        <ul className="c-navbar__lang flex px-16 md:pl-[theme(spacing.16)]">
+        <ul className="c-navbar__lang flex px-16 md:pl-[theme(spacing.16)] md:pr-0">
           {lang === "en" ? (
-            <li className="c-navbar__lang-item md:text-navy_blue text-ivory hover:text-black px-0 md:px-8">
+            <li className="c-navbar__lang-item md:text-navy_blue text-ivory hover:text-black px-0">
               <NavLink className="uppercase font-light" to="/">
                 FR
               </NavLink>

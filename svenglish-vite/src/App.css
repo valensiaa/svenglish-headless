@@ -9,6 +9,7 @@ html {
 .App {
   min-height: 100vh;
   background-color: #f2f1ec;
+  overflow: hidden;
 }
 
 .l-header {
@@ -278,10 +279,20 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
+
+  @media (max-width: 935px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .l-footer__socicons {
   flex: 0 0 300px;
+
+  @media (max-width: 935px) {
+    flex: 0 0 auto;
+  }
 }
 
 .l-footer__logo-img {
@@ -308,6 +319,20 @@ html {
   width: 40px;
   height: 40px;
   color: #ffffff;
+}
+
+.l-footer__contacts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.l-footer__contacts-phone-number {
+  font-size: 46px;
+}
+
+.l-footer__contacts-email {
+  font-size: 28px;
 }
 
 .c-topup {

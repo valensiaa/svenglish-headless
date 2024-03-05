@@ -11,6 +11,8 @@ const builder = imageUrlBuilder(sanityClient);
 const Footer = () => {
   const [data, setData] = useState(null);
 
+  const [email, setEmail] = useState(null);
+
   const lang = LangReceiver();
 
   useEffect(() => {
@@ -24,11 +26,24 @@ const Footer = () => {
               url
             }
           },
+          phoneNumber
         }`
       )
       .then((data) => setData(data))
       .catch(console.error);
+
+    sanityClient
+      .fetch(
+        `*[_type == 'socIcons']{
+        _id,
+        gmail
+      }`
+      )
+      .then((data) => setEmail(data))
+      .catch(console.error);
   }, []);
+
+  console.log(data, email);
 
   const setUrl = (source) => {
     return builder.image(source);
@@ -45,6 +60,24 @@ const Footer = () => {
               alt="Svenglish"
             />
           </Link>
+          <div className="l-footer__contacts">
+            {email && (
+              <Link
+                to={`mailto:${email[0].gmail}`}
+                className="l-footer__contacts-email text-white text-600"
+              >
+                {email[0].gmail}
+              </Link>
+            )}
+            {data && (
+              <Link
+                to={`tel:${data[0].phoneNumber}`}
+                className="l-footer__contacts-phone-number text-white"
+              >
+                {data[0].phoneNumber}
+              </Link>
+            )}
+          </div>
           <div className="l-footer__socicons">
             <SocIcons />
           </div>

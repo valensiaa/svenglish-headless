@@ -77,6 +77,11 @@ const siteConfig = defineType({
       },
     }),
     defineField({
+      name: 'phoneNumber',
+      type: 'string',
+      title: 'Phone number',
+    }),
+    defineField({
       name: 'socIcons',
       type: 'reference',
       to: [{type: 'socIcons'}],
