@@ -43,8 +43,6 @@ const Footer = () => {
       .catch(console.error);
   }, []);
 
-  console.log(data, email);
-
   const setUrl = (source) => {
     return builder.image(source);
   };
