@@ -72,22 +72,23 @@ const ProductsSection = ({ titleSection, anchorSection, iconSection }) => {
                 }
                 className="c-products__item w-full mb-[theme(spacing.24)] bg-navy_blue p-4 flex flex-col items-start justify-between"
               >
-                <h3 className="c-products__item__title text-lg text-ivory font-bold mb-3">
-                  {product.productTitle}
-                </h3>
-                <h4 className="c-products__item__subtitle text-sm text-ivory font-light mb-3">
-                  {product.productSubTitle}
-                </h4>
-                {product.productContent && (
-                  <MyCustomPortableText
-                    paragraphClasses="font-serif text-ivory text-xs"
-                    ulClasses="my-[theme(spacing.24)]"
-                    liClasses="text-ivory ml-3 text-sm font-light"
-                    headerClasses="font-bold text-ivory text-lg"
-                    value={product.productContent}
-                  />
-                )}
-
+                <div>
+                  <h3 className="c-products__item__title text-lg text-ivory font-bold mb-3">
+                    {product.productTitle}
+                  </h3>
+                  <h4 className="c-products__item__subtitle text-sm text-ivory font-light mb-3">
+                    {product.productSubTitle}
+                  </h4>
+                  {product.productContent && (
+                    <MyCustomPortableText
+                      paragraphClasses="font-serif text-ivory text-xs"
+                      ulClasses="mb-[theme(spacing.24)] mt-[theme(spacing.56)]"
+                      liClasses="text-ivory ml-3 text-sm font-light"
+                      headerClasses="font-bold text-ivory text-lg"
+                      value={product.productContent}
+                    />
+                  )}
+                </div>
                 <div className="c-products__item__icon">
                   <img
                     className="w-28"
