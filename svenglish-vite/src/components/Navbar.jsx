@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import sanityClient from "../client.js";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 
@@ -13,10 +13,6 @@ const Navbar = () => {
   // Function to handle menu item click
   const handleMenuItemClick = (id) => {
     window.location.hash = String(id); // Update URL hash
-  };
-
-  const addURLToHref = (url) => {
-    window.location.href = url; // Update URL href
   };
 
   const toggleMenu = () => {
@@ -76,24 +72,15 @@ const Navbar = () => {
         <ul className="c-navbar__lang flex px-16 md:pl-[theme(spacing.16)] md:pr-0">
           {lang === "en" ? (
             <li className="c-navbar__lang-item md:text-navy_blue text-ivory hover:text-black px-0">
-              <span
-                className="uppercase font-light"
-                onClick={() => addURLToHref("/")}
-              >
+              <NavLink className="uppercase font-light" to="/">
                 FR
-              </span>
+              </NavLink>
             </li>
           ) : (
-            <li
-              className="c-navbar__lang-item md:text-navy_blue text-ivory hover:text-black pl
-            x-0"
-            >
-              <span
-                className="uppercase font-light"
-                onClick={() => addURLToHref("/en")}
-              >
+            <li className="c-navbar__lang-item md:text-navy_blue text-ivory hover:text-black px-0">
+              <NavLink className="uppercase font-light" to="/en">
                 EN
-              </span>
+              </NavLink>
             </li>
           )}
         </ul>
