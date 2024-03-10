@@ -3,7 +3,8 @@ import { getSecondPartUrl } from "../../utils/getSecondPartURI.js";
 
 export const LangReceiver = () => {
   const location = useLocation();
+
   const { pathname } = location;
   let lang = getSecondPartUrl(pathname) === "en" ? "en" : "fr";
-  return lang;
+  return { lang, pathname };
 };

@@ -18,7 +18,7 @@ const builder = imageUrlBuilder(sanityClient);
 const ReviewsSection = ({ titleSection, anchorSection, iconSection }) => {
   const [reviews, setReviews] = useState(null);
 
-  const lang = LangReceiver();
+  const { lang } = LangReceiver();
 
   useEffect(() => {
     sanityClient

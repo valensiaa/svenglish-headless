@@ -1,20 +1,19 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 
 import { MyCustomPortableText } from "../components/shared/CustomPortableText.jsx";
 
 import imageUrlBuilder from "@sanity/image-url";
+import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 
 const builder = imageUrlBuilder(sanityClient);
 
 const ProductDetails = () => {
   const [productInfo, setProductInfo] = useState(null);
-  let { lang, productSlug } = useParams();
+  let { productSlug } = useParams();
 
-  const location = useLocation();
-  const { pathname } = location;
-
+  let { lang, pathname } = LangReceiver();
   lang = pathname.indexOf("/en/") > -1 ? "en" : "fr";
 
   const slugVar = lang === "en" ? "slugEn" : "slug";

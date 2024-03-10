@@ -12,7 +12,7 @@ const builder = imageUrlBuilder(sanityClient);
 const ProductsSection = ({ titleSection, anchorSection, iconSection }) => {
   const [products, setProducts] = useState(null);
 
-  const lang = LangReceiver();
+  const { lang } = LangReceiver();
 
   useEffect(() => {
     sanityClient

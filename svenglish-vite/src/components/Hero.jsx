@@ -11,7 +11,7 @@ const builder = imageUrlBuilder(sanityClient);
 const HeroSection = () => {
   const [hero, setHero] = useState(null);
 
-  const lang = LangReceiver();
+  const { lang } = LangReceiver();
 
   useEffect(() => {
     sanityClient

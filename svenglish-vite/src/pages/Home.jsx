@@ -13,7 +13,7 @@ import { LangReceiver } from "../components/shared/LangReceiver.jsx";
 const Home = () => {
   const [sectionsData, setSectionsData] = useState(null);
 
-  const lang = LangReceiver();
+  const { lang } = LangReceiver();
 
   useEffect(() => {
     sanityClient

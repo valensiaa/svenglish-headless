@@ -13,7 +13,8 @@ const builder = imageUrlBuilder(sanityClient);
 const Header = () => {
   const [data, setData] = useState(null);
 
-  const lang = LangReceiver();
+  const { lang } = LangReceiver();
+
   useEffect(() => {
     sanityClient
       .fetch(

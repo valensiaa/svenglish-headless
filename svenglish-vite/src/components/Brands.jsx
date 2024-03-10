@@ -22,7 +22,7 @@ const builder = imageUrlBuilder(sanityClient);
 const BrandsSection = ({ titleSection, anchorSection, iconSection }) => {
   const [brands, setBrands] = useState(null);
 
-  const lang = LangReceiver();
+  const { lang } = LangReceiver();
 
   useEffect(() => {
     sanityClient

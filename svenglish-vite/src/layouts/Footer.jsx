@@ -13,7 +13,7 @@ const Footer = () => {
 
   const [email, setEmail] = useState(null);
 
-  const lang = LangReceiver();
+  const { lang } = LangReceiver();
 
   useEffect(() => {
     sanityClient
